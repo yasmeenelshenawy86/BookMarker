@@ -1,0 +1,259 @@
+:root{
+  --duration: 350ms;
+  --ease: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+body{
+  font-family: 'Dhurjati', sans-serif;
+  font-family: 'Lobster', sans-serif;
+  font-family: 'Raleway', sans-serif;
+}
+h1{
+  color: #7d7a7a !important;
+  font-size: 50px;
+  font-family: 'Lobster', sans-serif;
+  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+}
+.parent{
+  width:50%;
+  /* z-index: 1; */
+  /* margin-bottom: 60px !important; */
+  position: relative;
+  transform: skewY(-5deg) translateY(10%) scale(0.94);
+  transition: box-shadow var(--duration) var(--ease),transform var(--duration) var(--ease);
+  -webkit-transform: skewY(-5deg) translateY(10%) scale(0.94);
+  -moz-transform: skewY(-5deg) translateY(10%) scale(0.94);
+  -ms-transform: skewY(-5deg) translateY(10%) scale(0.94);
+  -o-transform: skewY(-5deg) translateY(10%) scale(0.94);
+  -webkit-transition: box-shadow var(--duration) var(--ease),transform var(--duration) var(--ease);
+  -moz-transition: box-shadow var(--duration) var(--ease),transform var(--duration) var(--ease);
+  -ms-transition: box-shadow var(--duration) var(--ease),transform var(--duration) var(--ease);
+  -o-transition: box-shadow var(--duration) var(--ease),transform var(--duration) var(--ease);
+}
+.parent:before {
+  top: 0;
+  right: calc(100% - 1px);
+  transform-origin: 100% 100%;
+  transform: skewY(-35deg) scaleX(-1);
+  z-index: -1;
+}
+.parent:hover.parent:before{
+  z-index: 1;
+}
+.parent::before{
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  background-color: #282F44;
+  width: 14%;
+  height: 100%;
+  transition: background-color var(--duration) var(--ease), transform var(--duration) var(--ease);
+  -webkit-transition: background-color var(--duration) var(--ease), transform var(--duration) var(--ease);
+  -moz-transition: background-color var(--duration) var(--ease), transform var(--duration) var(--ease);
+  -ms-transition: background-color var(--duration) var(--ease), transform var(--duration) var(--ease);
+  -o-transition: background-color var(--duration) var(--ease), transform var(--duration) var(--ease);
+}
+.parent:after {
+  top: 0;
+  left: calc(100% - 1px);
+  transform-origin: 0 0;
+  transform: skewY(-35deg) scaleX(-1);
+  z-index: 2;
+}
+.parent::after{
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  background-color: #282F44;
+  width: 14%;
+  height: 100%;
+  transition: background-color var(--duration) var(--ease), transform var(--duration) var(--ease);
+  -webkit-transition: background-color var(--duration) var(--ease), transform var(--duration) var(--ease);
+  -moz-transition: background-color var(--duration) var(--ease), transform var(--duration) var(--ease);
+  -ms-transition: background-color var(--duration) var(--ease), transform var(--duration) var(--ease);
+  -o-transition: background-color var(--duration) var(--ease), transform var(--duration) var(--ease);
+}
+.parent:hover.parent,
+.parent:hover:before,
+.parent:hover:after {
+  background-color: #282F44;
+  transform: skewY(0);
+  /* transform: scale(1.0001); */
+  box-shadow: 0 1rem 3rem rgba(black, 0.1);
+}
+.form-info{
+  
+  background-color: #F5D061;
+  color: #282F44;
+}
+.form-info:hover{
+  background-color: #282F44;
+  color: #F5D061;
+}
+#alertCheckName{
+  font-size: 12px;
+  margin-bottom: 0;
+  padding: 0;
+}
+label{
+    font-family: 'Lobster', sans-serif;
+}
+input:focus {
+  border-left: 12px solid #F5D061 !important;
+  transition: 0.4s ease;
+}
+input{
+  color: #282F44;
+  font-weight: bold !important;
+}
+.download-button {
+  position: relative;
+  border-width: 0;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 4px;
+  z-index: 1;
+  background-color: #F5D061;
+  display: block;
+
+}
+.download-button .docs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 40px;
+  padding: 0 20px;
+  border-radius: 4px;
+  z-index: 1;
+  background-color: #242a35;
+  border: solid 1px #e8e8e82d;
+  transition: all .5s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.download-button:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.download {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 90%;
+  margin: 0 auto;
+  z-index: -1;
+  border-radius: 4px;
+  transform: translateY(0%);
+  background-color: #F5D061;
+  border: solid 1px #282F44;
+  transition: all .5s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.download-button:hover .download {
+  transform: translateY(100%)
+}
+.download svg polyline,
+.download svg line {
+  animation: docs 1s infinite;
+}
+
+@keyframes docs {
+  0% {
+    transform: translateY(0%);
+  }
+
+  50% {
+    transform: translateY(-15%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}
+#tableParent{
+  background-color: #282F44;
+}
+#table-content input{
+  margin-top: 85px;
+  margin-bottom: 30px;
+  border-color: #242a35;
+  transition: all var(--duration);
+  -webkit-transition: all var(--duration);
+  -moz-transition: all var(--duration);
+  -ms-transition: all var(--duration);
+  -o-transition: all var(--duration);
+}
+#table-content input.form-control:focus::placeholder{
+  color: #F5D061;
+}
+
+#table-content input.form-control:focus{
+  border-left: 12px solid #F5D061!important;
+  box-shadow: 0 0 0 0.25rem #F5D061!important;
+  background-color: #242a35;
+  color: #F5D061;
+}
+
+#table-content thead tr th{
+color: #242a35;
+}
+
+button.btn-primary {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+#fixed-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+
+}
+
+#parent {
+  width: 40%;
+  margin: 20px auto;
+  background-color: #242a35;
+  color: #F5D061;
+}
+
+#closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+#delBtn{
+  background-color: #F5D061;
+  color: #242a35;
+}
+#cancelBtn {
+  background-color: #F5D061;
+  color: #242a35;
+}
+p{
+  font-family: 'Raleway', sans-serif;
+  margin-bottom: 0;
+  margin-top: 15px;
+  /* background-color: #242a35; */
+  color: #242a35;
+  padding: 20px;
+  text-align: center;
+  font-size:22px ;
+  font-weight: 600;
+  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+}

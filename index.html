@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>BookMarker</title>
+	<!-- Fav Icon -->
+	<link rel="icon" href="assets/imgs/2899445.png" type="image/png">
+	<!-- Google Fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Raleway:400,800,700,900,300,100' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+	<!-- Font Awesome Library-->
+	<link rel="stylesheet" href="css/all.min.css">
+	<!-- bootstrap FRAMEWORK -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<!-- Main StyleSheet -->
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<h1 class="text-center mt-3">Bookmarker</h1>
+			<!-- ************ Start Form Section ************* -->
+<section id="form-content" class=" w-75 mb-3 mx-auto">
+<div class="parent mx-auto mb-5">
+	<div class="form-info form-control rounded-0">
+		<h2 class="text-center mt-3">Bookmark Your Favorite sites</h2>
+		<div>
+			<label for="siteName"><i class="fa-solid fa-book-bookmark"></i> Site Name</label>
+			<input type="text" class="form-control my-1" oninput="urlNameValid()" name="siteName" id="siteName" placeholder="Bookmark Name">
+			<div class="alert alert-danger d-none mt-2" id="alertCheckName"><ul>Invalid Name :
+				<li>Start with Characters[a-z]</li>
+				<li>At Least 3 Characters</li>
+			</ul></div>
+		</div>
+		<div>
+			<label for="siteUrl"><i class="fa-solid fa-link"></i> Site URl</label>
+			<input type="text" oninput="urlValid()" class="form-control my-1"
+				name="siteUrl" id="siteUrl" placeholder="Website URL">
+			<div class="alert alert-danger d-none mt-2 d-flex flex-column w-75" id="alertBox">Invalid URL Please Enter Valid Structure
+			</div>
+		</div>
+		<button id="addBtn" onclick="addSite()" class="download-button mt-3 mx-auto">
+			<div class="docs"><svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none"
+					stroke-width="2" stroke="currentColor" height="20" width="20" viewBox="0 0 24 24">
+					<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+					<polyline points="14 2 14 8 20 8"></polyline>
+					<line y2="13" x2="8" y1="13" x1="16"></line>
+					<line y2="17" x2="8" y1="17" x1="16"></line>
+					<polyline points="10 9 9 9 8 9"></polyline>
+				</svg> ADD</div>
+			<div class="download">
+				<svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="2"
+					stroke="currentColor" height="24" width="24" viewBox="0 0 24 24">
+					<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+					<polyline points="7 10 12 15 17 10"></polyline>
+					<line y2="3" x2="12" y1="15" x1="12"></line>
+				</svg>
+			</div>
+		</button>
+		<button id="updateBtn" onclick="updateData()" class="download-button mt-3 mx-auto d-none">
+			<div class="docs"><svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none"
+					stroke-width="2" stroke="currentColor" height="20" width="20" viewBox="0 0 24 24">
+					<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+					<polyline points="14 2 14 8 20 8"></polyline>
+					<line y2="13" x2="8" y1="13" x1="16"></line>
+					<line y2="17" x2="8" y1="17" x1="16"></line>
+					<polyline points="10 9 9 9 8 9"></polyline>
+				</svg> Update</div>
+			<div class="download">
+				<svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="2"
+					stroke="currentColor" height="24" width="24" viewBox="0 0 24 24">
+					<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+					<polyline points="7 10 12 15 17 10"></polyline>
+					<line y2="3" x2="12" y1="15" x1="12"></line>
+				</svg>
+			</div>
+		</button>
+	</div>
+</div>
+</section>
+			<!-- ************ End Form Section ************* -->
+
+			<!-- ************ Start Table Section ********** -->
+<section id="table-content" class="mt-5">
+	<input type="text" id="searchInput" oninput="search()" class="form-control mt-5 w-50 mx-auto" placeholder="Search...">
+	<div id="tableParent" class="w-75 mx-auto p-4 rounded-4 border border-2 shadow">
+		<table id ="table" class="table text-white">
+			<thead>
+				<tr class="text-center">
+					<th>Index</th>
+					<th>Website Name</th>
+					<th>Visit</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody id="tableBody" class="text-center">
+				
+			</tbody>
+		</table>
+	</div>
+	<div id="fixed-box" class="d-none justify-content-center align-items-center vh-50">
+		<div id="parent" class="d-flex flex-column rounded-5 position-relative">
+			<i class="fa-solid fa-square-xmark fs-3" id="closeBtn"></i>
+			<h2 class="p-3 mt-5 text-center fs-4">Are You Sure You Want To Delete It?</h2>
+			<div class="btns d-flex justify-content-around mt-4">
+				<button id="delBtn" class="btn btn-info w-25 mb-3">delete</button>
+				<button id="cancelBtn" class="btn btn-success w-25 mb-3">cancel</button>
+			</div>
+		</div>
+	</div>
+</section>
+<p>Designed by &copy;Yasmin Elshenawy</p>
+<!-- <footer>
+</footer> -->
+			<!-- ************ End Table Section ************* -->
+<script src="javascript/bootstrap.bundle.min.js"></script>
+<script src="./javascript/index.js"></script>
+</body>
+</html>
